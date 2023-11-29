@@ -1,3 +1,6 @@
+@php
+use App\Models\Functions;
+@endphp
 <x-app-layout>
 
     <main class="dash-panel d-flex flex-nowrap">
@@ -34,23 +37,22 @@
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <img
-                                                    {{--                                                    src="https://mdbootstrap.com/img/new/avatars/8.jpg"--}}
-                                                    src="https://ui-avatars.com/api/?name={{ $ddPessoa->nome }}"
+                                                    src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $ddPessoa->nome }}"
                                                     alt=""
                                                     style="width: 45px; height: 45px"
                                                     class="rounded-circle"
                                                 />
                                                 <div class="ms-3">
                                                     <p class="fw-bold mb-1">{{ $ddPessoa->nome }}</p>
-                                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                                    <p class="text-muted mb-0">Sobrenome</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <p class="fw-normal mb-1">{{ $ddPessoa->cpf }}</p>
-                                            <p class="text-muted mb-0 small">CPF</p>
+                                            <p class="text-muted mb-0 small">CPF/CNS</p>
                                         </td>
-                                        <td>{{ $ddPessoa->data_nascimento }}</td>
+                                        <td>{{ Functions::formatarData($ddPessoa->data_nascimento) }}</td>
                                         <td>{{ $ddPessoa->unidade->nome }}</td>
                                         <td>
                                             <div class="d-flex align-items-center justify-content-start">
@@ -73,7 +75,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <div class="mt-5">
+                            <div class="mt-5 float-end">
                                 {{ $arrPessoas->links('components.paginate') }}
                             </div>
                         </section>
