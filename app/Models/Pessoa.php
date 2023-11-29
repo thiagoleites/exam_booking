@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, BelongsToMany};
 
 class Pessoa extends Model
 {
@@ -22,16 +21,15 @@ class Pessoa extends Model
         'status',
     ];
 
-
-    public function listarPessoas($per_page = 10, $search = null): object
+    public static function listarPessoas($per_page): object
     {
 
-        return Pessoa::where('status', true)
-            ->orderBy('nome', 'asc')
+        return Pessoa::where('status', '1')
+            ->orderBy('id', 'asc')
             ->paginate($per_page);
     }
 
-    public function BuscarPessoas($search = null): object
+    public static function BuscarPessoas($search = null): object
     {
         $pessoas = [];
 

@@ -16,7 +16,11 @@ class PessoaController extends Controller
      */
     public function index(): View
     {
-        return view('admin.pessoas.index');
+        $arrPessoas = Pessoa::listarPessoas(5);
+
+        return view('admin.pessoas.index', [
+            'arrPessoas' => $arrPessoas,
+        ]);
     }
 
     /**
