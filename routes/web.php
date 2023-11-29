@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\{AuthController, PessoaController};
 use Illuminate\Support\Facades\Route;
 
@@ -14,15 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.dashboard');
-});
+//Route::get('/', function () {
+//    return view('admin.dashboard');
+//});
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [AuthController::class, 'login'])->name('admin.login');
     Route::post('/login/do', [AuthController::class, 'attempt'])->name('admin.login.do');
     Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
-    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('admin.dashboard');
+//    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/dashboard', DashboardController::class)->name('admin.dashboard');
     Route::get('/pessoas', [PessoaController::class, 'index'])->name('admin.pessoas');
     //    Route::get('/users/create', 'Admin\UserController@create')->name('admin.users.create');
     //    Route::post('/users/create', 'Admin\UserController@store')->name('admin.users.store');

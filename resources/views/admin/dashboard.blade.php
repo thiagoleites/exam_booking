@@ -25,7 +25,7 @@
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            3,243
+                                            {{ $params['pessoasCount'] }}
                                         </h2>
                                     </div>
                                     <div class="col-4 text-right">
@@ -50,7 +50,7 @@
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            15.07k
+                                            {{ $params['examesCount'] }}
                                         </h2>
                                     </div>
                                     <div class="col-4 text-right">
@@ -75,7 +75,7 @@
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            578
+                                            {{ $params['agentesCount'] }}
                                         </h2>
                                     </div>
                                     <div class="col-4 text-right">
@@ -100,17 +100,17 @@
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            $11.61k
+                                            {{ $params['unidadesCount'] }}
                                         </h2>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span>2.5% <i class="fa fa-arrow-up"></i></span>
+                                        <span>100% <i class="fa fa-arrow-up"></i></span>
                                     </div>
                                 </div>
                                 <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                                    <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%"
-                                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                                         style="width: 25%;"></div>
+                                    <div class="progress-bar l-bg-cyan" role="progressbar" data-width="100%"
+                                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 100%;"></div>
                                 </div>
                             </div>
                         </div>
