@@ -56,15 +56,15 @@
                                             <div class="d-flex align-items-center justify-content-start">
                                                 <button type="button"
                                                         class="btn btn-light d-flex justify-content-center align-items-center rounded-circle p-2 mx-2">
-                                                    <x-icons.visualizar />
+                                                    <x-icons.visualizar/>
                                                 </button>
                                                 <button type="button"
                                                         class="btn btn-light d-flex justify-content-center align-items-center rounded-circle p-2 mx-2">
-                                                    <x-icons.edit />
+                                                    <x-icons.edit/>
                                                 </button>
                                                 <button type="button"
                                                         class="btn btn-danger d-flex justify-content-center align-items-center rounded-circle p-2 mx-2">
-                                                    <x-icons.delete />
+                                                    <x-icons.delete/>
                                                 </button>
                                             </div>
 
@@ -73,6 +73,9 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <div class="mt-5">
+                                {{ $arrPessoas->links('components.paginate') }}
+                            </div>
                         </section>
                     </div>
                 </div>
