@@ -48,17 +48,26 @@
                                         </td>
                                         <td>
                                             <p class="fw-normal mb-1">{{ $ddPessoa->cpf }}</p>
-                                            <p class="text-muted mb-0">CPF</p>
+                                            <p class="text-muted mb-0 small">CPF</p>
                                         </td>
-                                        <td>
-                                            <span
-                                                class="badge badge-success rounded-pill d-inline">{{ $ddPessoa->data_nascimento }}</span>
-                                        </td>
+                                        <td>{{ $ddPessoa->data_nascimento }}</td>
                                         <td>{{ $ddPessoa->unidade->nome }}</td>
                                         <td>
-                                            <button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                Edit
-                                            </button>
+                                            <div class="d-flex align-items-center justify-content-start">
+                                                <button type="button"
+                                                        class="btn btn-light d-flex justify-content-center align-items-center rounded-circle p-2 mx-2">
+                                                    <x-icons.visualizar />
+                                                </button>
+                                                <button type="button"
+                                                        class="btn btn-light d-flex justify-content-center align-items-center rounded-circle p-2 mx-2">
+                                                    <x-icons.edit />
+                                                </button>
+                                                <button type="button"
+                                                        class="btn btn-danger d-flex justify-content-center align-items-center rounded-circle p-2 mx-2">
+                                                    <x-icons.delete />
+                                                </button>
+                                            </div>
+
                                         </td>
                                     </tr>
                                 @endforeach
