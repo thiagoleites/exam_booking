@@ -16,7 +16,7 @@
             <td>
                 <div class="d-flex align-items-center">
                     <img
-                        src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                        src="https://ui-avatars.com/api/?background=random&color=fff&name=John+Doe"
                         alt=""
                         style="width: 45px; height: 45px"
                         class="rounded-circle"
@@ -45,7 +45,7 @@
             <td>
                 <div class="d-flex align-items-center">
                     <img
-                        src="https://mdbootstrap.com/img/new/avatars/6.jpg"
+                        src="https://ui-avatars.com/api/?background=random&color=fff&name=Alex+Ray"
                         class="rounded-circle"
                         alt=""
                         style="width: 45px; height: 45px"
@@ -80,7 +80,7 @@
             <td>
                 <div class="d-flex align-items-center">
                     <img
-                        src="https://mdbootstrap.com/img/new/avatars/7.jpg"
+                        src="https://ui-avatars.com/api/?background=random&color=fff&name=Kate+Hunington"
                         class="rounded-circle"
                         alt=""
                         style="width: 45px; height: 45px"

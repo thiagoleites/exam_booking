@@ -20,20 +20,20 @@
                             <div class="card-statistic-3 p-4">
                                 <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
                                 <div class="mb-4">
-                                    <h5 class="card-title mb-0">Pessoas</h5>
+                                    <h5 class="card-title mb-0">Total de Pessoas Cadastradas</h5>
                                 </div>
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
-                                        <h2 class="d-flex align-items-center mb-0">
+                                        <h2 class="d-flex align-items-center mb-0" id="totalPessoas">
                                             {{ $params['pessoasCount'] }}
                                         </h2>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span>12.5% <i class="fa fa-arrow-up"></i></span>
+                                        <span id="percentageChangeP"></span>
                                     </div>
                                 </div>
                                 <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                                    <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%"
+                                    <div class="progress-barP l-bg-cyan" role="progressbar" data-width="25%"
                                          aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
                                          style="width: 25%;"></div>
                                 </div>
@@ -45,20 +45,20 @@
                             <div class="card-statistic-3 p-4">
                                 <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
                                 <div class="mb-4">
-                                    <h5 class="card-title mb-0">Exames</h5>
+                                    <h5 class="card-title mb-0">Total de Exames</h5>
                                 </div>
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
-                                        <h2 class="d-flex align-items-center mb-0">
+                                        <h2 class="d-flex align-items-center mb-0" id="totalExames">
                                             {{ $params['examesCount'] }}
                                         </h2>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span>9.23% <i class="fa fa-arrow-up"></i></span>
+                                        <span id="percentageChangeE"></span>
                                     </div>
                                 </div>
                                 <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%"
+                                    <div class="progress-barE l-bg-green" role="progressbar" data-width="25%"
                                          aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
                                          style="width: 25%;"></div>
                                 </div>
@@ -70,20 +70,21 @@
                             <div class="card-statistic-3 p-4">
                                 <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
                                 <div class="mb-4">
-                                    <h5 class="card-title mb-0">Agentes</h5>
+                                    <h5 class="card-title mb-0">Total de Agentes</h5>
                                 </div>
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
-                                        <h2 class="d-flex align-items-center mb-0">
+                                        <h2 class="d-flex align-items-center mb-0" id="totalAgentes">
                                             {{ $params['agentesCount'] }}
                                         </h2>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span>10% <i class="fa fa-arrow-up"></i></span>
+{{--                                        <span id="percentageChange">10% <i class="fa fa-arrow-up"></i></span>--}}
+                                        <span id="percentageChangeA"></span>
                                     </div>
                                 </div>
                                 <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                                    <div class="progress-bar l-bg-orange" role="progressbar" data-width="25%"
+                                    <div class="progress-barA l-bg-orange" role="progressbar" data-width="25%"
                                          aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
                                          style="width: 25%;"></div>
                                 </div>
@@ -95,20 +96,20 @@
                             <div class="card-statistic-3 p-4">
                                 <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
                                 <div class="mb-4">
-                                    <h5 class="card-title mb-0">Unidades</h5>
+                                    <h5 class="card-title mb-0">Total de Unidades de Saúde</h5>
                                 </div>
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
-                                        <h2 class="d-flex align-items-center mb-0">
+                                        <h2 class="d-flex align-items-center mb-0" id="totalUnidades">
                                             {{ $params['unidadesCount'] }}
                                         </h2>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span>100% <i class="fa fa-arrow-up"></i></span>
+                                        <span id="percentageChangeU"></span>
                                     </div>
                                 </div>
                                 <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                                    <div class="progress-bar l-bg-cyan" role="progressbar" data-width="100%"
+                                    <div class="progress-barU l-bg-cyan" role="progressbar" data-width="100%"
                                          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
                                          style="width: 100%;"></div>
                                 </div>
@@ -130,4 +131,36 @@
 
     </main>
 
+    @push('scripts')
+        <script>
+            $(function () {
+                // Valores totais esperados
+                var allAgentes = 68;
+                var allPopulacao = 27890; //Provisório - implementar consulta no ibge
+                var allExames = 150;
+                var allUnidades = 11;
+
+                // Obtenha os totais específicos para cada campo
+                var totalPessoas = parseInt($('#totalPessoas').text());
+                var totalExames = parseInt($('#totalExames').text());
+                var totalUnidades = parseInt($('#totalUnidades').text());
+                var totalAgentes = parseInt($('#totalAgentes').text());
+
+                // Atualize as porcentagens para cada campo
+                updatePercentage(totalAgentes, allAgentes, 'progress-barA', 'percentageChangeA');
+                updatePercentage(totalPessoas, allPopulacao, 'progress-barP', 'percentageChangeP');
+                updatePercentage(totalExames, allExames, 'progress-barE', 'percentageChangeE');
+                updatePercentage(totalUnidades, allUnidades, 'progress-barU', 'percentageChangeU');
+
+                // Função genérica para atualizar a porcentagem e a barra de progresso
+                function updatePercentage(total, totalEsperado, progressBarClass, percentageChangeId) {
+                    var percentage = (total / totalEsperado) * 100;
+                    $('.' + progressBarClass).css('width', percentage + '%');
+                    $('#' + percentageChangeId).html(percentage.toFixed(2) + '% <i class="fa fa-arrow-up"></i>');
+                }
+            });
+
+        </script>
+
+    @endpush
 </x-app-layout>

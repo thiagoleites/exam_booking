@@ -1,3 +1,6 @@
+@php
+    use App\Supports\Auxiliar;
+@endphp
 <x-app-layout>
 
     <main class="dash-panel d-flex flex-nowrap">
