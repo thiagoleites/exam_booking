@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agente;
-use App\Models\Exame;
-use App\Models\Pessoa;
-use App\Models\Unidade;
+use App\Models\{Agente, Exame, Functions, Pessoa, Unidade};
 use Illuminate\Http\Request;
-use App\Models\Functions;
 
 class DashboardController extends Controller
 {
@@ -18,10 +14,10 @@ class DashboardController extends Controller
     {
         $params = [];
 
-        $params['pessoasCount'] = Pessoa::count();
-        $params['agentesCount'] = Agente::count();
+        $params['pessoasCount']  = Pessoa::count();
+        $params['agentesCount']  = Agente::count();
         $params['unidadesCount'] = Unidade::count();
-        $params['examesCount'] = Exame::count();
+        $params['examesCount']   = Exame::count();
 
         return view('admin.dashboard', ['params' => $params]);
     }

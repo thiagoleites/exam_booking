@@ -6,8 +6,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\{StorePessoaRequest, UpdatePessoaRequest};
-use App\Models\Pessoa;
-use App\Models\Functions;
+use App\Models\{Functions, Pessoa};
 use Illuminate\Contracts\View\View;
 
 class PessoaController extends Controller
