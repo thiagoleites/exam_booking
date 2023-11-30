@@ -159,6 +159,74 @@
 }
 
 /**
+    * Not found
+ */
+
+#notfound {
+    position: relative;
+    height: 100vh;
+
+    .notfound {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .notfound {
+        max-width: 520px;
+        width: 100%;
+        line-height: 1.4;
+        text-align: center;
+
+        .notfound-404 {
+            position: relative;
+            height: 240px;
+
+            h1 {
+                font-family: montserrat, sans-serif;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                font-size: 252px;
+                font-weight: 900;
+                color: #262626;
+                text-transform: uppercase;
+                letter-spacing: -40px;
+                margin: 0 0 0 -20px;
+
+                span {
+                    text-shadow: -8px 0 0 #fff;
+                }
+            }
+
+            h3 {
+                font-family: cabin,sans-serif;
+                position: relative;
+                font-size: 16px;
+                font-weight: 700;
+                text-transform: uppercase;
+                margin: 0;
+                letter-spacing: 3px;
+                padding-left: 6px;
+            }
+        }
+
+        h2 {
+            font-family: cabin, sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+    }
+}
+
+/**
     Login Page
  */
 @media screen and (max-width: 576px) {

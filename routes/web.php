@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\{AuthController, PessoaController};
 use Illuminate\Support\Facades\Route;
+use App\Supports\Auxiliar;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Route::get('/', function () {
-//    return view('admin.dashboard');
+//    return view('pages.404');
 //});
 
 Route::group(['prefix' => 'admin'], function () {

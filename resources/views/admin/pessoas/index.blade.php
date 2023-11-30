@@ -1,6 +1,3 @@
-@php
-use App\Models\Functions;
-@endphp
 <x-app-layout>
 
     <main class="dash-panel d-flex flex-nowrap">
@@ -52,7 +49,7 @@ use App\Models\Functions;
                                             <p class="fw-normal mb-1">{{ $ddPessoa->cpf }}</p>
                                             <p class="text-muted mb-0 small">CPF/CNS</p>
                                         </td>
-                                        <td>{{ Functions::formatarData($ddPessoa->data_nascimento) }}</td>
+                                        <td>{{ Auxiliar::getFormattedDate($ddPessoa->data_nascimento) }}</td>
                                         <td>{{ $ddPessoa->unidade->nome }}</td>
                                         <td>
                                             <div class="d-flex align-items-center justify-content-start">

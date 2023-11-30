@@ -7,6 +7,7 @@ use App\Models\Exame;
 use App\Models\Pessoa;
 use App\Models\Unidade;
 use Illuminate\Http\Request;
+use App\Models\Functions;
 
 class DashboardController extends Controller
 {
