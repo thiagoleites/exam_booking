@@ -204,6 +204,7 @@
                                     @endforeach
                                 </x-table.tbody>
                             </x-table.index>
+                            <div id="populacaoBocaDaMata"></div>
                         </div>
                     </div>
                 </div>

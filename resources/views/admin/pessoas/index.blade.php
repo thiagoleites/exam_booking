@@ -10,8 +10,26 @@
 
         <div class="content">
             <div class="p-3 w-100">
-                <section>
+                <section class="d-flex align-items-center justify-content-between">
                     <h1 class="px-3">Pessoas</h1>
+                    <div style="width: 500px;">
+                        <form action="" method="get">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="search" placeholder="Pesquisar"
+                                       value="{{ request()->get('search') }}">
+                                <button class="btn btn-primary" type="submit" id="button-addon2">
+                                    <x-icons.search/>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div>
+                        <a href="{{ route('admin.pessoas.create') }}" class="btn btn-primary btn-sm px-5 py-2 mx">
+                            <x-icons.useradd/>
+                            Adicionar
+                        </a>
+                    </div>
                 </section>
 
                 <hr>

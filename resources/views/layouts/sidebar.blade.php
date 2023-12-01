@@ -29,31 +29,51 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link
+                @if (Route::currentRouteName() == 'admin.dashboard')
+                    active
+                @endif
+            " aria-current="page">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
                 Home
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-body-emphasis">
+            <a href="#" class="nav-link link-body-emphasis
+                @if (Route::currentRouteName() == 'admin.agentes')
+                    active
+                @endif
+            ">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
                 Agentes
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-body-emphasis">
+            <a href="#" class="nav-link link-body-emphasis
+                @if (Route::currentRouteName() == 'admin.exames')
+                    active
+                @endif
+            ">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
                 Exames
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-body-emphasis">
+            <a href="#" class="nav-link link-body-emphasis
+                @if (Route::currentRouteName() == 'admin.ubs')
+                    active
+                @endif
+            ">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
                 UBS
             </a>
         </li>
         <li>
-            <a href="{{ route('admin.pessoas') }}" class="nav-link link-body-emphasis">
+            <a href="{{ route('admin.pessoas') }}" class="nav-link link-body-emphasis
+                @if (Route::currentRouteName() == 'admin.pessoas')
+                    active
+                @endif
+            ">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
                 Pessoas
             </a>

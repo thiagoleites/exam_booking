@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::get('/dashboard', DashboardController::class)->name('admin.dashboard');
         Route::get('/pessoas', [PessoaController::class, 'index'])->name('admin.pessoas');
+        Route::get('/pessoas/create', [PessoaController::class, 'create'])->name('admin.pessoas.create');
     });
 
 });
