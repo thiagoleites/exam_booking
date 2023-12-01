@@ -18,6 +18,8 @@ class DashboardController extends Controller
         $params['agentesCount']  = Agente::count();
         $params['unidadesCount'] = Unidade::count();
         $params['examesCount']   = Exame::count();
+        $params['agentes']       = Agente::orderBy('id')->limit(5)->get();
+        $params['pessoas']       = Pessoa::orderBy('id')->limit(5)->get();
 
         return view('admin.dashboard', ['params' => $params]);
     }

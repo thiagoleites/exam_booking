@@ -78,6 +78,12 @@
     height: 100vh;
 }
 
+.content {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
 /*
     * Cards Dashboard
 */
