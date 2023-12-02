@@ -25,8 +25,8 @@
                     </div>
 
                     <div>
-                        <a href="{{ route('admin.pessoas.create') }}" class="btn btn-primary btn-sm px-5 py-2 mx">
-                            <x-icons.useradd/>
+                        <a href="" class="btn btn-primary btn-sm px-3 py-2" id="btnCreatePeopleModal" data-toggle="modal" data-target="createPeopleModal">
+                            <x-icons.useradd  />
                             Adicionar
                         </a>
                     </div>
@@ -70,7 +70,7 @@
                                                 <p class="fw-normal mb-1">{{ $ddPessoa->cpf }}</p>
                                                 <p class="text-muted mb-0 small">CPF/CNS</p>
                                             </td>
-                                            <td>{{ Auxiliar::getFormattedDate($ddPessoa->data_nascimento) }}</td>
+                                            <td>{{ getFormattedDate($ddPessoa->data_nascimento) }}</td>
                                             <td>{{ $ddPessoa->unidade->nome }}</td>
                                             <td>
                                                 <div class="d-flex align-items-center justify-content-start">
@@ -104,5 +104,18 @@
 
             </div>
         </div>
+        @include('admin.pessoas.create')
     </main>
+    @push('scripts')
+        <script>
+            $(function(){
+                $('#btnCreatePeopleModal').on('click', function(e){
+                    e.preventDefault();
+                    $('#createPeopleModal').modal('toggle');
+                });
+            })
+        </script>
+
+    @endpush
 </x-app-layout>
+

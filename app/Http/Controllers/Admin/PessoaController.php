@@ -28,9 +28,9 @@ class PessoaController extends Controller
      */
     public function create()
     {
-        $exibirModal = true;
-
-        return view('admin.pessoas.create', compact('exibirModal'));
+//        $exibirModal = true;
+//
+//        return view('admin.pessoas.create', compact('exibirModal'));
     }
 
     /**
