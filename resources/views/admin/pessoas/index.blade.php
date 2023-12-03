@@ -62,20 +62,20 @@
                                                     />
                                                     <div class="ms-3">
                                                         <p class="fw-bold mb-1">{{ $ddPessoa->nome }}</p>
-                                                        <p class="text-muted mb-0">Sobrenome</p>
+{{--                                                        <p class="text-muted mb-0">Sobrenome</p>--}}
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
                                                 <p class="fw-normal mb-1">{{ $ddPessoa->cpf }}</p>
-                                                <p class="text-muted mb-0 small">CPF/CNS</p>
+{{--                                                <p class="text-muted mb-0 small">CPF/CNS</p>--}}
                                             </td>
                                             <td>{{ getFormattedDate($ddPessoa->data_nascimento) }}</td>
                                             <td>{{ $ddPessoa->unidade->nome }}</td>
                                             <td>
                                                 <div class="d-flex align-items-center justify-content-start">
-                                                    <button type="button"
-                                                            class="btn btn-light d-flex justify-content-center align-items-center rounded-circle p-2 mx-2">
+                                                    <button type="button" id="" data-bs-toggle="modal" data-bs-target="#showPeopleModal{{ $ddPessoa->id }}"
+                                                            class="btn btn-light d-flex justify-content-center align-items-center rounded-circle p-2 mx-2 btnInfoModal">
                                                         <x-icons.visualizar/>
                                                     </button>
                                                     <button type="button"
@@ -90,6 +90,7 @@
 
                                             </td>
                                         </tr>
+                                        @include('admin.pessoas.show')
                                     @endforeach
                                     </tbody>
                                 </table>
@@ -113,6 +114,13 @@
                     e.preventDefault();
                     $('#createPeopleModal').modal('toggle');
                 });
+                //
+                // $('.btnInfoModal').on('click', function(e){
+                //     e.preventDefault();
+                //
+                //     console.log('teste funcionando');
+                //     $('#showPeopleModal').modal('toggle');
+                // });
             })
         </script>
 
