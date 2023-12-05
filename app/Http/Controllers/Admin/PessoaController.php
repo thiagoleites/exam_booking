@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\{StorePessoaRequest, UpdatePessoaRequest};
-use App\Models\{Functions, Pessoa};
+use App\Models\{Agente, Pessoa, Unidade};
 use Illuminate\Contracts\View\View;
 
 class PessoaController extends Controller
@@ -16,10 +16,14 @@ class PessoaController extends Controller
      */
     public function index(): View
     {
-        $arrPessoas = Pessoa::listarPessoas(10);
+        $arrPessoas  = Pessoa::listarPessoas(10);
+        $arrUnidades = Unidade::all();
+        $arrAgentes  = Agente::all();
 
         return view('admin.pessoas.index', [
-            'arrPessoas' => $arrPessoas,
+            'arrPessoas'  => $arrPessoas,
+            'arrUnidades' => $arrUnidades,
+            'arrAgentes'  => $arrAgentes,
         ]);
     }
 
@@ -28,9 +32,9 @@ class PessoaController extends Controller
      */
     public function create()
     {
-//        $exibirModal = true;
-//
-//        return view('admin.pessoas.create', compact('exibirModal'));
+        //        $exibirModal = true;
+        //
+        //        return view('admin.pessoas.create', compact('exibirModal'));
     }
 
     /**
@@ -38,7 +42,10 @@ class PessoaController extends Controller
      */
     public function store(StorePessoaRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        dd($validated);
+
     }
 
     /**

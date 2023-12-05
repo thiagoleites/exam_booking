@@ -1,6 +1,6 @@
 <div class="modal fade" id="showPeopleModal{{ $ddPessoa->id }}" tabindex="-1" role="dialog"
      aria-labelledby="showPeopleModal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Cadastro - {{ $ddPessoa->id }}</h5>
@@ -38,12 +38,12 @@
                                     <p class="text-muted">{{ $ddPessoa->telefone }}</p>
                                 </div>
                             </div>
-                            <h6>Projects</h6>
+                            <h6>Exames Marcados</h6>
                             <hr class="mt-0 mb-4">
                             <div class="row pt-1">
                                 <div class="col-6 mb-3">
-                                    <h6>Exames Marcados</h6>
-                                    <p class="text-muted">Lorem ipsum</p>
+                                    <h6>Exame 1</h6>
+                                    <p class="text-muted">11/11/2025 - Exame exemplo</p>
                                 </div>
                                 <div class="col-6 mb-3">
                                     <h6>Most Viewed</h6>
@@ -60,8 +60,9 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
         </div>
     </div>
+</div>

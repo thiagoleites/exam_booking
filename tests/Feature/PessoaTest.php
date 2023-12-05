@@ -6,7 +6,6 @@
 //    $response->assertStatus(200);
 //});
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\{Pessoa, User};
 
 it('should be return route for pessoas', function () {

@@ -12,4 +12,3 @@ function getFormattedDate(string $date): string
 
     return $date;
 }
-
