@@ -107,52 +107,5 @@
         </div>
         @include('admin.pessoas.create')
     </main>
-    @push('scripts')
-        <script>
-            $(function(){
-                $('#btnCreatePeopleModal').on('click', function(e){
-                    e.preventDefault();
-                    $('#createPeopleModal').modal('toggle');
-                });
-                //
-                // $('.btnInfoModal').on('click', function(e){
-                //     e.preventDefault();
-                //
-                //     console.log('teste funcionando');
-                //     $('#showPeopleModal').modal('toggle');
-                // });
-
-                $("form[name='createPeopleForm']").submit(function(e){
-                    e.preventDefault();
-                    var form = $(this);
-                    var url  = form.attr('action');
-                    var data = form.serialize();
-
-                    $.ajax({
-                        url: url,
-                        type: 'POST',
-                        data: data,
-                        dataType: 'json',
-                        beforeSend: function(){
-                            $('#btnCreatePeopleModal').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
-                        },
-                        success: function(response){
-                            if(response.status === 'success'){
-                                toast_alert(response.message, 'success');
-                                time_hide($('#btnCreatePeopleModal'), 2000, '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span role="status"> Aguarde ...</span>');
-                                setTimeout(function(){
-                                    window.location.href = response.redirect;
-                                }, 2000);
-                            }else{
-                                toast_alert(response.message, 'error');
-                                time_hide($('#btnCreatePeopleModal'), 2000, '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span role="status"> Aguarde ...</span>');
-                            }
-                        }
-                    });
-                })
-            })
-        </script>
-
-    @endpush
 </x-app-layout>
 
