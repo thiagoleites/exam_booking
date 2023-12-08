@@ -79,10 +79,31 @@ $(function () {
         });
     });
 
-    //People page
-    //Show modal
+    //-People Manager-//
+    //Show modal create
     $('#btnCreatePeopleModal').on('click', function(e){
         e.preventDefault();
         $('#createPeopleModal').modal('toggle');
+    });
+
+    //Delete People
+    $('form[name="formPeopleDelete"]').submit(function(e){
+        e.preventDefault();
+
+        var form = $(this);
+        var url = typeof form.attr('action') ? form.attr('action') : '0';
+        var dataId = form.data('id');
+
+        $.ajax({
+            type: 'DELETE',
+            url: url,
+            data: dataId,
+            success: function(response) {
+                toast_alert(response.message, 'success');
+                setTimeout(function () {
+                    window.location.href = response.redirect;
+                }, 2000);
+            }
+        });
     });
 });

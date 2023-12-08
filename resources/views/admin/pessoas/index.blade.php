@@ -82,10 +82,15 @@
                                                             class="btn btn-light d-flex justify-content-center align-items-center rounded-circle p-2 mx-2">
                                                         <x-icons.edit/>
                                                     </button>
-                                                    <button type="button"
-                                                            class="btn btn-danger d-flex justify-content-center align-items-center rounded-circle p-2 mx-2">
-                                                        <x-icons.delete/>
-                                                    </button>
+                                                    <form name="formPeopleDelete" action="{{ route('admin.pessoas.delete', ['id' => $ddPessoa->id]) }}" data-id="{{ $ddPessoa->id }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                                class="btn btn-danger d-flex justify-content-center align-items-center rounded-circle p-2 mx-2">
+                                                            <x-icons.delete/>
+                                                        </button>
+                                                    </form>
+
                                                 </div>
 
                                             </td>

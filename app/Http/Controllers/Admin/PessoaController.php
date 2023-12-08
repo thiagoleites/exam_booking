@@ -75,8 +75,14 @@ class PessoaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pessoa $pessoa)
+    public function destroy(string $id)
     {
-        //
+        $people = Pessoa::find($id);
+        $people->delete();
+
+        return response()->json([
+            'message'  => 'Os dados foram excluidos!',
+            'redirect' => route('admin.pessoas'),
+        ]);
     }
 }
