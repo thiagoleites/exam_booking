@@ -78,7 +78,7 @@
                                                             class="btn btn-light d-flex justify-content-center align-items-center rounded-circle p-2 mx-2 btnInfoModal">
                                                         <x-icons.visualizar/>
                                                     </button>
-                                                    <button type="button"
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#editPeopleModal{{ $ddPessoa->id }}"
                                                             class="btn btn-light d-flex justify-content-center align-items-center rounded-circle p-2 mx-2">
                                                         <x-icons.edit/>
                                                     </button>
@@ -96,6 +96,7 @@
                                             </td>
                                         </tr>
                                         @include('admin.pessoas.show')
+                                        @include('admin.pessoas.edit')
                                     @endforeach
                                     </tbody>
                                 </table>

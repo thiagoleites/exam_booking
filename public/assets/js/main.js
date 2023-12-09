@@ -86,6 +86,28 @@ $(function () {
         $('#createPeopleModal').modal('toggle');
     });
 
+    //Update People
+    $('form[name="formPeopleUpdate"]').submit(function(e){
+        e.preventDefault();
+
+        var form = $(this);
+        var url = typeof form.attr('action') ? form.attr('action') : '0';
+        var data = form.serialize();
+
+        $.ajax({
+            type: 'PATCH',
+            url: url,
+            data: data,
+            success: function(response) {
+                $(".modal").hide();
+                toast_alert(response.message, 'success');
+                setTimeout(function () {
+                    window.location.href = response.redirect;
+                }, 4000);
+            }
+        });
+    });
+
     //Delete People
     $('form[name="formPeopleDelete"]').submit(function(e){
         e.preventDefault();

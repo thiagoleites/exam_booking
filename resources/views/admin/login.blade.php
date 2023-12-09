@@ -16,7 +16,7 @@
 
                 <div class="mb-3">
                     <label for="password" class="form-label text-muted text-uppercase fw-bold">Senha</label>
-                    <input type="text" name="password" class="form-control py-3 px-3" id="password"
+                    <input type="password" name="password" class="form-control py-3 px-3" id="password"
                            placeholder="Digite sua senha" value="123456">
                 </div>
 

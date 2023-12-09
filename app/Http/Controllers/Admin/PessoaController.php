@@ -5,6 +5,8 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use App\Http\Requests\{StorePessoaRequest, UpdatePessoaRequest};
 use App\Models\{Agente, Pessoa, Unidade};
 use Illuminate\Contracts\View\View;
@@ -67,21 +69,26 @@ class PessoaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePessoaRequest $request, Pessoa $pessoa)
+    public function update(Request $request): JsonResponse
     {
-        //
+        Pessoa::findOrFail($request->id)->update($request->all());
+
+        return response()->json([
+            'message'  => 'Os dados foram atualizados!',
+            'redirect' => route('admin.pessoas'),
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id): JsonResponse
     {
         $people = Pessoa::find($id);
         $people->delete();
 
         return response()->json([
-            'message'  => 'Os dados foram excluidos!',
+            'message'  => 'Os dados foram excluídos!',
             'redirect' => route('admin.pessoas'),
         ]);
     }
