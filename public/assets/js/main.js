@@ -81,13 +81,13 @@ $(function () {
 
     //-People Manager-//
     //Show modal create
-    $('#btnCreatePeopleModal').on('click', function(e){
+    $('#btnCreatePeopleModal').on('click', function (e) {
         e.preventDefault();
         $('#createPeopleModal').modal('toggle');
     });
 
     //Update People
-    $('form[name="formPeopleUpdate"]').submit(function(e){
+    $('form[name="formPeopleUpdate"]').submit(function (e) {
         e.preventDefault();
 
         var form = $(this);
@@ -98,7 +98,7 @@ $(function () {
             type: 'PATCH',
             url: url,
             data: data,
-            success: function(response) {
+            success: function (response) {
                 $(".modal").hide();
                 toast_alert(response.message, 'success');
                 setTimeout(function () {
@@ -109,7 +109,7 @@ $(function () {
     });
 
     //Delete People
-    $('form[name="formPeopleDelete"]').submit(function(e){
+    $('form[name="formPeopleDelete"]').submit(function (e) {
         e.preventDefault();
 
         var form = $(this);
@@ -120,12 +120,65 @@ $(function () {
             type: 'DELETE',
             url: url,
             data: dataId,
-            success: function(response) {
+            success: function (response) {
                 toast_alert(response.message, 'success');
                 setTimeout(function () {
                     window.location.href = response.redirect;
                 }, 2000);
             }
+        });
+    });
+
+
+    //Search People
+    $('form[name="formSearchPeople"]').submit(function (e) {
+        e.preventDefault();
+
+        var form = $(this);
+        var search = form.find('input[name="search"]').val();
+
+        $.ajax({
+            type: 'GET',
+            url: "/admin/buscar-pessoas",
+            data: {search: search},
+            success: function (data) {
+                // console.log(data);
+                $(".peopleTable tbody").empty();
+
+                $.each(data, function (index, pessoa) {
+                    // console.log(pessoa.nome);
+
+                    $("#tbodyPessoas").append(`
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img
+                                    src="https://ui-avatars.com/api/?background=random&color=fff&name=${pessoa.nome}"
+                                    alt=""
+                                    style="width: 45px; height: 45px"
+                                    class="rounded-circle"
+                                />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">${pessoa.nome}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">${pessoa.cpf}</p>
+                        </td>
+                        <td>${pessoa.data_nascimento}</td>
+                        <td>${pessoa.unidade.nome}</td>
+                        <td>
+                            <!-- Botões de ação aqui -->
+                        </td>
+                    </tr>
+                `);
+                });
+            },
+            error: function (error) {
+                console.error("Erro na busca: " + error);
+            }
+
         });
     });
 });

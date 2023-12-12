@@ -5,11 +5,10 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use App\Http\Requests\{StorePessoaRequest, UpdatePessoaRequest};
 use App\Models\{Agente, Pessoa, Unidade};
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\{JsonResponse, Request};
 
 class PessoaController extends Controller
 {
@@ -91,5 +90,18 @@ class PessoaController extends Controller
             'message'  => 'Os dados foram excluídos!',
             'redirect' => route('admin.pessoas'),
         ]);
+    }
+
+    public function buscarPessoas(Request $request)
+    {
+        $search  = $request->input('search');
+        $pessoas = Pessoa::where('nome', 'like', "%{$search}%")
+            ->orWhere('cpf', 'like', "%{$search}%")
+            ->orWhere('nome_mae', 'like', "%{$search}%")
+            ->orWhere('data_nascimento', 'like', "%{$search}%")
+            ->orWhere('telefone', 'like', "%{$search}%")
+            ->get();
+
+        return response()->json($pessoas);
     }
 }

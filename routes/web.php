@@ -26,7 +26,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/pessoas/create', [PessoaController::class, 'create'])->name('admin.pessoas.create');
         Route::post('/pessoas/create/do', [PessoaController::class, 'store'])->name('admin.pessoas.create.do');
         Route::patch('/pessoas/update/{id}', [PessoaController::class, 'update'])->name('admin.pessoas.update.do');
-
+        Route::get('/buscar-pessoas', [PessoaController::class, 'buscarPessoas'])->name('admin.pessoas.search');
         Route::delete('/pessoas/delete/{id}', [PessoaController::class, 'destroy'])->name('admin.pessoas.delete');
     });
 
