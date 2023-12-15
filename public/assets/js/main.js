@@ -148,31 +148,19 @@ $(function () {
                 $.each(data, function (index, pessoa) {
                     // console.log(pessoa.nome);
 
-                    $("#tbodyPessoas").append(`
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img
-                                    src="https://ui-avatars.com/api/?background=random&color=fff&name=${pessoa.nome}"
-                                    alt=""
-                                    style="width: 45px; height: 45px"
-                                    class="rounded-circle"
-                                />
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">${pessoa.nome}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">${pessoa.cpf}</p>
-                        </td>
-                        <td>${pessoa.data_nascimento}</td>
-                        <td>${pessoa.unidade.nome}</td>
-                        <td>
-                            <!-- Botões de ação aqui -->
-                        </td>
-                    </tr>
-                `);
+                    $("#tbodyPessoas").append(
+                        '<tr>' +
+                        ' <td>' + pessoa.nome + '</td>' +
+                        ' <td>' + pessoa.cpf + '</td>' +
+                        ' <td>' + pessoa.data_nascimento + '</td>' +
+                        ' <td>' + pessoa.unidade_id + '</td>' +
+                        ' <td>' + '<a href="/admin/pessoas/' + pessoa.id + '/edit" class="btn btn-primary btn-sm">Editar</a>' +
+                        ' <form action="/admin/pessoas/' + pessoa.id + '" method="POST" class="d-inline" name="formPeopleDelete" data-id="' + pessoa.id + '">' +
+                            ' <input type="hidden" name="_method" value="DELETE">' +
+                            ' <button type="submit" class="btn btn-danger btn-sm">Excluir</button>' +
+                        ' </form>' +
+                        ' </td>' +
+                        '</tr>');
                 });
             },
             error: function (error) {
